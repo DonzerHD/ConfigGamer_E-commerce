@@ -3,9 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>Acheter au fournisseur</title>
+<title>Commande au fournisseur</title>
 </head>
 <body>
-<h1>Fournisseur Achat : </h1>
+<h1>Fournisseur Commande : </h1>
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col-8">
+      <h2>Historique des commandes passées aux fournisseurs</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nom du fournisseur</th>
+            <th>Matériel commandé</th>
+            <th>Quantité commandé</th>
+            <th>Date de commande</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="fournisseurAchat : ${fournisseurAchats}">
+            <td th:text="${fournisseurAchat.nom_fournisseurAchat}"></td>
+            <td th:text="${fournisseurAchat.materiel_fournisseur}"></td>
+            <td th:text="${fournisseurAchat.quantite_acheter_fournisseurAchat}"></td>
+            <td th:text="${fournisseurAchat.date_acheter_fournisseurAchat}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h2>Commande au fournisseur</h2>
+      <form th:action="@{/fournisseur}" th:object="${fournisseurAchat}" method="post">
+        <div class="form-group">
+          <label for="name">Nom du fournisseur :</label>
+          <input type="text" class="form-control" id="name" th:field="*{materiel_fournisseur}"/>
+          <div th:if="${#fields.hasErrors('materiel_fournisseur')}" th:errors="*{materiel_fournisseur}">Name Error</div>
+        </div>
+        <div class="form-group">
+          <label for="description">Matériel commandé :</label>
+          <textarea class="form-control" id="description" th:field="*{nom_fournisseurAchat}"></textarea>
+          <div th:if="${#fields.hasErrors('nom_fournisseurAchat')}" th:errors="*{nom_fournisseurAchat}">Description Error</div>
+        </div>
+        <div class="form-group">
+          <label for="price">Quantité commandé :</label>
+          <input type="number" class="form-control" id="price" th:field="*{quantite_acheter_fournisseurAchat}"/>
+          <div th:if="${#fields.hasErrors('quantite_acheter_fournisseurAchat')}" th:errors="*{quantite_acheter_fournisseurAchat}">Price Error</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>

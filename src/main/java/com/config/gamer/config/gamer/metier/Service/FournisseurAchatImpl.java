@@ -1,15 +1,26 @@
 package com.config.gamer.config.gamer.metier.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.config.gamer.config.gamer.donnees.DAO.FournisseurAchatDAO;
 import com.config.gamer.config.gamer.donnees.DO.FournisseurAchat;
 import com.config.gamer.config.gamer.metier.DTO.FournisseurAchatDTO;
 
+@Service
 public class FournisseurAchatImpl implements FournisseurAchatService{
 	
 	@Autowired
 	private FournisseurAchatDAO fournisseurAchatDAO;
+	
 	 
 	@Override
 	 public FournisseurAchatDTO ConvertFournisseurAchatDTO(FournisseurAchat fournisseurAchat) {
@@ -27,15 +38,27 @@ public class FournisseurAchatImpl implements FournisseurAchatService{
 		    FournisseurAchat fournisseurAchat = new FournisseurAchat();
 		    fournisseurAchat.setId_fournisseurAchat(fournisseurAchatDTO.getId_fournisseurAchat());
 		    fournisseurAchat.setNom_fournisseurAchat(fournisseurAchatDTO.getNom_fournisseurAchat());
-		    fournisseurAchat.setId_fournisseurAchat(fournisseurAchatDTO.getId_fournisseurAchat());
+		    fournisseurAchat.setMateriel_fournisseur(fournisseurAchatDTO.getMateriel_fournisseur());
 		    fournisseurAchat.setDate_acheter_fournisseurAchat(fournisseurAchatDTO.getDate_acheter_fournisseurAchat());
 		    fournisseurAchat.setQuantite_acheter_fournisseurAchat(fournisseurAchatDTO.getQuantite_acheter_fournisseurAchat());
 		    return fournisseurAchat;
 		  }
 
-	@Override
-	public FournisseurAchatDTO createteAchat(FournisseurAchatDTO fournisseurAchatDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	 @Override
+	 public List<FournisseurAchatDTO> findAll() {
+		    List<FournisseurAchat> fournisseurAchat = fournisseurAchatDAO.findAll();
+		    return fournisseurAchat.stream().map(this::ConvertFournisseurAchatDTO).collect(Collectors.toList());
+		  } 
+	 
+	 
+	 @Override
+	 public void createProduct(FournisseurAchatDTO fournisseurAchatDTO) {
+		    FournisseurAchat fournisseurAchat = new FournisseurAchat();
+		    fournisseurAchat.setNom_fournisseurAchat(fournisseurAchatDTO.getNom_fournisseurAchat());
+		    fournisseurAchat.setMateriel_fournisseur(fournisseurAchatDTO.getMateriel_fournisseur());
+		    fournisseurAchat.setQuantite_acheter_fournisseurAchat(fournisseurAchatDTO.getQuantite_acheter_fournisseurAchat());
+		    fournisseurAchat.setDate_acheter_fournisseurAchat(LocalDate.now());
+		    fournisseurAchatDAO.save(fournisseurAchat);
+		  }
+
 }

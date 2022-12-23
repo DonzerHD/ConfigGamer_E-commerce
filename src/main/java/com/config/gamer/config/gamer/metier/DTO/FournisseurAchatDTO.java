@@ -1,5 +1,6 @@
 package com.config.gamer.config.gamer.metier.DTO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.config.gamer.config.gamer.donnees.DO.Produit;
 
@@ -14,7 +15,7 @@ public class FournisseurAchatDTO {
 	  
 	private Integer quantite_acheter_fournisseurAchat;
 		  
-	 private LocalDateTime date_acheter_fournisseurAchat;
+	 private LocalDate date_acheter_fournisseurAchat;
 	  
 
 	  public String getNom_fournisseurAchat() {
@@ -40,11 +41,11 @@ public class FournisseurAchatDTO {
 		this.quantite_acheter_fournisseurAchat = quantite_acheter__fournisseurAchat;
 	}
 
-	public LocalDateTime getDate_acheter_fournisseurAchat() {
+	public LocalDate getDate_acheter_fournisseurAchat() {
 		return date_acheter_fournisseurAchat;
 	}
 
-	public void setDate_acheter_fournisseurAchat(LocalDateTime date_acheter_fournisseurAchat) {
+	public void setDate_acheter_fournisseurAchat(LocalDate date_acheter_fournisseurAchat) {
 		this.date_acheter_fournisseurAchat = date_acheter_fournisseurAchat;
 	}
 

@@ -1,5 +1,6 @@
 package com.config.gamer.config.gamer.donnees.DO;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -27,8 +28,8 @@ public class FournisseurAchat {
 	  @Column(name = "quantite_acheter_fournisseurAchat", nullable = false)
 	  private Integer quantite_acheter_fournisseurAchat;
 	  
-	  @Column(name = "date_acheter_fournisseurAchat", nullable = false)
-	  private LocalDateTime date_acheter_fournisseurAchat;
+	  @Column(name = "date_acheter_fournisseurAchat")
+	  private LocalDate date_acheter_fournisseurAchat;
 
 	public String getNom_fournisseurAchat() {
 		return nom_fournisseurAchat;
@@ -62,12 +63,14 @@ public class FournisseurAchat {
 		this.quantite_acheter_fournisseurAchat = quantite_acheter_fournisseurAchat;
 	}
 
-	public LocalDateTime getDate_acheter_fournisseurAchat() {
+	public LocalDate getDate_acheter_fournisseurAchat() {
 		return date_acheter_fournisseurAchat;
 	}
 
-	public void setDate_acheter_fournisseurAchat(LocalDateTime date_acheter_fournisseurAchat) {
+	public void setDate_acheter_fournisseurAchat(LocalDate date_acheter_fournisseurAchat) {
 		this.date_acheter_fournisseurAchat = date_acheter_fournisseurAchat;
 	}
+
+
 	  
 }
