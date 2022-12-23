@@ -6,8 +6,9 @@
 <title>Page d'accueil</title>
 </head>
 <body>
+<h1>WELCOME CONFIG-GAMER PC-GAMER EXPERT</h1>
+<a class="btn btn-primary" href="#" role="button">Acheter chez le fournisseur du matériels </a>
 <table class="table table-striped">
-<h1>WELCOME CONFIG-GAMER</h1>
   <thead>
     <tr>
       <th>Nom</th>
@@ -24,6 +25,10 @@
       <td th:text="${produit.prix_produit}"></td>
       <td th:text="${produit.stock_produit}"></td>
       <td th:text="${produit.categorie_produit}"></td>
+      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Détails</a></td>
+      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ajouter au Panier</a></td>
+      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Modifier</a></td>
+      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Supprimer</a></td>
     </tr> 
   </tbody>
 </table>
