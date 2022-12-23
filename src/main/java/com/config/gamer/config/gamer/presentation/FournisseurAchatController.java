@@ -1,6 +1,6 @@
 package com.config.gamer.config.gamer.presentation;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +36,7 @@ public class FournisseurAchatController {
     if (bindingResult.hasErrors()) {
       return "/fournisseur";
     }
-    fournisseurAchatService.createProduct(productDTO);
+    fournisseurAchatService.createFournisseurAchat(productDTO);
     return "redirect:/fournisseur";
   }
 

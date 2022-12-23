@@ -11,4 +11,5 @@ public interface ProduitService {
 	Produit ConvertProduit(ProduitDTO produitDTO);
 	
 	List<ProduitDTO> findAll();
+	void createProduit(ProduitDTO produitDTO);
 }

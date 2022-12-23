@@ -1,9 +1,6 @@
 package com.config.gamer.config.gamer.metier.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -52,11 +49,8 @@ public class FournisseurAchatImpl implements FournisseurAchatService{
 	 
 	 
 	 @Override
-	 public void createProduct(FournisseurAchatDTO fournisseurAchatDTO) {
-		    FournisseurAchat fournisseurAchat = new FournisseurAchat();
-		    fournisseurAchat.setNom_fournisseurAchat(fournisseurAchatDTO.getNom_fournisseurAchat());
-		    fournisseurAchat.setMateriel_fournisseur(fournisseurAchatDTO.getMateriel_fournisseur());
-		    fournisseurAchat.setQuantite_acheter_fournisseurAchat(fournisseurAchatDTO.getQuantite_acheter_fournisseurAchat());
+	 public void createFournisseurAchat(FournisseurAchatDTO fournisseurAchatDTO) {
+		    FournisseurAchat fournisseurAchat = ConvertFournisseurAchat(fournisseurAchatDTO);
 		    fournisseurAchat.setDate_acheter_fournisseurAchat(LocalDate.now());
 		    fournisseurAchatDAO.save(fournisseurAchat);
 		  }

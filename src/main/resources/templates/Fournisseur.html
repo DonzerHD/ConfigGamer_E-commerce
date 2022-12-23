@@ -6,6 +6,7 @@
 <title>Commande au fournisseur</title>
 </head>
 <body>
+<a class="btn btn-primary" href="/" role="button">Revenir Accueil</a>
 <h1>Fournisseur Commande : </h1>
 <div class="container-fluid p-4">
   <div class="row">
@@ -34,21 +35,21 @@
       <h2>Commande au fournisseur</h2>
       <form th:action="@{/fournisseur}" th:object="${fournisseurAchat}" method="post">
         <div class="form-group">
-          <label for="name">Nom du fournisseur :</label>
-          <input type="text" class="form-control" id="name" th:field="*{materiel_fournisseur}"/>
-          <div th:if="${#fields.hasErrors('materiel_fournisseur')}" th:errors="*{materiel_fournisseur}">Name Error</div>
+          <label for="nom">Nom du fournisseur :</label>
+          <input type="text" class="form-control" id="nom" th:field="*{materiel_fournisseur}"/>
+          <div th:if="${#fields.hasErrors('materiel_fournisseur')}" th:errors="*{materiel_fournisseur}">Nom Error</div>
         </div>
         <div class="form-group">
-          <label for="description">Matériel commandé :</label>
-          <textarea class="form-control" id="description" th:field="*{nom_fournisseurAchat}"></textarea>
-          <div th:if="${#fields.hasErrors('nom_fournisseurAchat')}" th:errors="*{nom_fournisseurAchat}">Description Error</div>
+          <label for="materiel">Matériel commandé :</label>
+          <textarea class="form-control" id="materiel" th:field="*{nom_fournisseurAchat}"></textarea>
+          <div th:if="${#fields.hasErrors('nom_fournisseurAchat')}" th:errors="*{nom_fournisseurAchat}">Materiel Error</div>
         </div>
         <div class="form-group">
-          <label for="price">Quantité commandé :</label>
-          <input type="number" class="form-control" id="price" th:field="*{quantite_acheter_fournisseurAchat}"/>
-          <div th:if="${#fields.hasErrors('quantite_acheter_fournisseurAchat')}" th:errors="*{quantite_acheter_fournisseurAchat}">Price Error</div>
+          <label for="quantite">Quantité commandé :</label>
+          <input type="number" class="form-control" id="quantite" th:field="*{quantite_acheter_fournisseurAchat}"/>
+          <div th:if="${#fields.hasErrors('quantite_acheter_fournisseurAchat')}" th:errors="*{quantite_acheter_fournisseurAchat}">Quantité Error</div>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>
   </div>

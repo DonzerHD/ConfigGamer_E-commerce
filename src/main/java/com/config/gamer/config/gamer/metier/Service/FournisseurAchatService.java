@@ -11,5 +11,5 @@ public interface FournisseurAchatService {
 	FournisseurAchatDTO ConvertFournisseurAchatDTO(FournisseurAchat fournisseurAchat);
 	FournisseurAchat ConvertFournisseurAchat(FournisseurAchatDTO fournisseurAchatDTO);
 	List<FournisseurAchatDTO> findAll();
-	void createProduct(FournisseurAchatDTO fournisseurAchatDTO);
+	void createFournisseurAchat(FournisseurAchatDTO fournisseurAchatDTO);
 }

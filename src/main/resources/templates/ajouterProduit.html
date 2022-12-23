@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Ajoutez Produit</title>
+</head>
+<body>
+<a class="btn btn-primary" href="/" role="button">Revenir Accueil</a>
+<h1>Ajoutez Produit : </h1>
+<div class="container-fluid p-4">
+  <div class="row">
+    <div class="col-8">
+      <h2>Historique des produits ajouter</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Produits Ajouter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="produit : ${produits}">
+            <td th:text="${produit.nom_produit}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h2>Formulaire ajouter produit</h2>
+      <form th:action="@{/ajouterProduit}" th:object="${produit}" method="post">
+        <div class="form-group">
+          <label for="nom">Nom du Produit :</label>
+          <input type="text" class="form-control" id="nom" th:field="*{nom_produit}"/>
+          <div th:if="${#fields.hasErrors('nom_produit')}" th:errors="*{nom_produit}">Nom Error</div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description du Produit :</label>
+          <textarea class="form-control" id="description" th:field="*{description_produit}"></textarea>
+          <div th:if="${#fields.hasErrors('description_produit')}" th:errors="*{description_produit}">Description Error</div>
+        </div>
+        <div class="form-group">
+          <label for="prix">Prix :</label>
+          <input type="number" class="form-control" id="prix" th:field="*{prix_produit}"/>
+          <div th:if="${#fields.hasErrors('prix_produit')}" th:errors="*{prix_produit}">Prix Error</div>
+        </div>
+        <div class="form-group">
+          <label for="stock">Quantité Stock :</label>
+          <input type="number" class="form-control" id="stock" th:field="*{stock_produit}"/>
+          <div th:if="${#fields.hasErrors('stock_produit')}" th:errors="*{stock_produit}">Quantité Error</div>
+        </div>
+         <div class="form-group">
+          <label for="categorie">Catégorie :</label>
+          <input type="text" class="form-control" id="categorie" th:field="*{categorie_produit}"/>
+          <div th:if="${#fields.hasErrors('categorie_produit')}" th:errors="*{categorie_produit}">Catégorie Error</div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

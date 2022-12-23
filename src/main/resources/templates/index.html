@@ -7,7 +7,8 @@
 </head>
 <body>
 <h1>WELCOME CONFIG-GAMER PC-GAMER EXPERT</h1>
-<a class="btn btn-primary" href="/fournisseur" role="button">Acheter chez un fournisseur du matériels </a>
+<a class="btn btn-outline-primary" href="/fournisseur" role="button">Acheter chez un fournisseur du matériels </a>
+<a class="btn btn-outline-secondary" href="/ajouterProduit" role="button">Ajouter Produit</a>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -16,19 +17,22 @@
       <th>Prix</th>
       <th>Stock</th>
       <th>Catégorie</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
    <tr th:each="produit :${produits}">
       <td th:text="${produit.nom_produit}"></td>
-      <td th:text="${produit.description_produit}"></td>
       <td th:text="${produit.prix_produit}"></td>
       <td th:text="${produit.stock_produit}"></td>
       <td th:text="${produit.categorie_produit}"></td>
-      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Détails</a></td>
-      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ajouter au Panier</a></td>
-      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Modifier</a></td>
-      <td><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Supprimer</a></td>
+      <td><a href="#" class="btn btn-primary" role="button" aria-pressed="true">Détails</a></td>
+      <td><a href="#" class="btn btn-success" role="button" aria-pressed="true">Ajouter au Panier</a></td>
+      <td><a href="#" class="btn btn-warning" role="button" aria-pressed="true">Modifier</a></td>
+      <td><a href="#" class="btn btn-danger" role="button" aria-pressed="true">Supprimer</a></td>
     </tr> 
   </tbody>
 </table>
