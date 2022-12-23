@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Page d'accueil</title>
+</head>
+<body>
+<table class="table table-striped">
+<h1>WELCOME CONFIG-GAMER</h1>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Prix</th>
+      <th>Stock</th>
+      <th>Catégorie</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr th:each="produit :${produits}">
+      <td th:text="${produit.nom_produit}"></td>
+      <td th:text="${produit.description_produit}"></td>
+      <td th:text="${produit.prix_produit}"></td>
+      <td th:text="${produit.stock_produit}"></td>
+      <td th:text="${produit.categorie_produit}"></td>
+    </tr> 
+  </tbody>
+</table>
+
+</body>
+</html>
