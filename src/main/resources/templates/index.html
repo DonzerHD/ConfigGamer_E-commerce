@@ -9,9 +9,6 @@
 <h1>WELCOME CONFIG-GAMER PC-GAMER EXPERT</h1>
 <a class="btn btn-outline-primary" href="/fournisseur" role="button">Acheter chez un fournisseur du matériels </a>
 <a class="btn btn-outline-secondary" href="/ajouterProduit" role="button">Ajouter Produit</a>
-<div>
-  <span th:text="${panierIcone}"></span><span> produits dans le panier</span>
-</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -33,40 +30,11 @@
       <td th:text="${produit.stock_produit}"></td>
       <td th:text="${produit.categorie_produit}"></td>
       <td><a href="#" class="btn btn-primary" role="button" aria-pressed="true">Détails</a></td>
-      <td><form action="#" th:action="@{/panier/ajouter}" method="post">
-  <input type="hidden" name="id_produit" th:value="${produit.id_produit}" />
-  <button type="submit" class="btn btn-primary">Ajouter au panier</button>
-</form></td>
       <td><a href="#" class="btn btn-warning" role="button" aria-pressed="true">Modifier</a></td>
+      <td><a href="#" class="btn btn-warning" role="button" aria-pressed="true">Ajouter Panier</a></td>
       <td><a href="#" class="btn btn-danger" role="button" aria-pressed="true">Supprimer</a></td>
     </tr> 
   </tbody>
 </table>
-
-
-<h2>Produit dans le panier</h2>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="produit : ${panier.produits}">
-      <td th:text="${produit.nom_produit}">Nom</td>
-      <td th:text="${produit.prix_produit}">Prix</td>
-    </tr>
-    <tr>
-      <th><span>Nombre de produits : </span><span th:text="${panierIcone}"></span></th>
-      <th><span>Prix total : </span><span th:text="${prixTotal}"></span><span> euros</span></th>
-    </tr>
-  </tbody>
-</table>
-<a href="#" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-shopping-cart"></span> Achat
-        </a>
-
-
 </body>
 </html>
