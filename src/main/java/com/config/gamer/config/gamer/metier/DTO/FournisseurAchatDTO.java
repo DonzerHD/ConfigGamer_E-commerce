@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.config.gamer.config.gamer.donnees.DO.Produit;
 
+/**
+ * @author thomas59
+ *
+ */
 public class FournisseurAchatDTO {
 
 	  private Long id_fournisseurAchat;
