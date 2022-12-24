@@ -1,16 +1,15 @@
 package com.config.gamer.config.gamer.metier.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.config.gamer.config.gamer.donnees.DAO.ProduitDAO;
-import com.config.gamer.config.gamer.donnees.DO.FournisseurAchat;
 import com.config.gamer.config.gamer.donnees.DO.Produit;
-import com.config.gamer.config.gamer.metier.DTO.FournisseurAchatDTO;
 import com.config.gamer.config.gamer.metier.DTO.ProduitDTO;
 
 
@@ -55,5 +54,9 @@ public class ProduitServiceImpl implements ProduitService {
 	  Produit produit = ConvertProduit(produitDTO);
 	  produitDAO.save(produit);
 		  }
-
+	 
+	 @Override
+	 public Produit getById(long id) {
+		    return produitDAO.findById(id).orElse(null);
+		  }
 }
