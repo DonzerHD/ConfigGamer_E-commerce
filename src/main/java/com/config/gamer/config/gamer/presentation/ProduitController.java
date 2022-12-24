@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.config.gamer.config.gamer.metier.DTO.ProduitDTO;
 import com.config.gamer.config.gamer.metier.Service.ProduitService;
 
+/**
+ * @author thomas59
+ *
+ */
 @Controller
 public class ProduitController {
 
