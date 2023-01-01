@@ -6,4 +6,5 @@ import com.config.gamer.config.gamer.donnees.DO.FournisseurAchat;
 
 public interface FournisseurAchatDAO extends JpaRepository<FournisseurAchat, Long>{
 
+  
 }
