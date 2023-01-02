@@ -59,4 +59,9 @@ public class ProduitServiceImpl implements ProduitService {
 	 public Produit getById(long id) {
 		    return produitDAO.findById(id).orElse(null);
 		  }
+	 
+	 @Override
+	 public void save(Produit produit) {
+	  produitDAO.save(produit);
+		  }
 }

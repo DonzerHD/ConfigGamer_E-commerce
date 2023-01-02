@@ -16,4 +16,5 @@ public interface ProduitService {
 	List<ProduitDTO> findAll();
 	void createProduit(ProduitDTO produitDTO);
 	Produit getById(long id);
+	void save(Produit produit);
 }

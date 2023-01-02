@@ -2,7 +2,11 @@ package com.config.gamer.config.gamer.presentation;
 
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -68,11 +72,26 @@ public class ProduitController{
 	      
 	      // Ajoutez le produit au panier
 	      panier.ajouterProduit(produit);
-           
-	      
+                 
 	      return "redirect:/";
 	    }
-	  }
+	    
+	    @PostMapping("/cart/empty")
+	    public String emptyCart() {
+	    HttpSession session = request.getSession();
+		 Panier panier = (Panier) session.getAttribute("panier");
+		 /* Code bizarre*/
+		  panier.updateStock();
+		  for (Produit produit : panier.getProduits()) {
+		    produitService.save(produit);
+		  }
+		 /* Code bizarre */
+	      panier.enleverLesProduit();
+	      return "redirect:/";
+	    }
+	    
+}
+
 
 
 
